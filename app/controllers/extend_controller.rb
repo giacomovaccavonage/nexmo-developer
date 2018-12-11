@@ -20,7 +20,6 @@ class ExtendController < ApplicationController
   end
 
   def show
-
     document_path = "#{Rails.root}/_extend/#{params[:title]}.md"
 
     document = File.read(document_path)
@@ -32,7 +31,7 @@ class ExtendController < ApplicationController
     image = frontmatter['image'] || ''
     cta = frontmatter['cta'] || 'Use This'
     link = frontmatter['link'] || ''
-    @extension = { title: title, body: body, image: image, description: description, tags: tags, link: link, cta: cta}
+    @extension = { title: title, body: body, image: image, description: description, tags: tags, link: link, cta: cta }
 
     render layout: 'page'
   end
