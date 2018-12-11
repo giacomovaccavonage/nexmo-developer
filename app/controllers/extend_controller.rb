@@ -28,8 +28,9 @@ class ExtendController < ApplicationController
     description = frontmatter['description']
     tags = frontmatter['tags'] || []
     image = frontmatter['image'] || ''
+    cta = frontmatter['cta'] || ''
     link = frontmatter['link'] || ''
-    @extension = { title: title, body: body, image: image, description: description, tags: tags, link: link }
+    @extension = { title: title, body: body, image: image, description: description, tags: tags, link: link, cta: cta}
 
     render layout: 'page'
   end

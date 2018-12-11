@@ -19,7 +19,13 @@
     <% end %>
     <% if @extension[:link] != '' %>
     <div class="cta">
-        <a href="<%= @extension[:link] %>" class="Vlt-btn Vlt-btn--primary Vlt-btn--large">Use This</a>
+        <a href="<%= @extension[:link] %>" class="Vlt-btn Vlt-btn--primary Vlt-btn--large">
+        <% if @extension[:cta] != '' %>
+        <%= @extension[:cta] %>
+        <% else %>
+        Use This
+        <% end %>
+        </a>
     </div>
     <% end %>
 </div>
