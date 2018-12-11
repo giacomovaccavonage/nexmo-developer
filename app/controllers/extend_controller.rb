@@ -7,18 +7,20 @@ class ExtendController < ApplicationController
     @extensions = document_paths.map do |document_path|
       document = File.read(document_path)
       frontmatter = YAML.safe_load(document)
+      next if frontmatter['published'] == false
       title = frontmatter['title']
       description = frontmatter['description']
       tags = frontmatter['tags'] || []
       image = frontmatter['image'] || ''
       route = File.basename(document_path, '.*')
       { title: title, description: description, tags: tags, image: image, route: route }
-    end
+    end.compact
 
     render layout: 'page'
   end
 
   def show
+
     document_path = "#{Rails.root}/_extend/#{params[:title]}.md"
 
     document = File.read(document_path)
